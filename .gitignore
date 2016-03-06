@@ -1,0 +1,5 @@
+#Ignore log files
+*_log.csv
+/misc/*
+/algo_training/prediction/data/*
+/algo_training/prediction/plots/*
