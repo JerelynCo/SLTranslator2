@@ -1,4 +1,5 @@
 #Ignore log files
+.*
 *_log.csv
 /misc/*
 /algo_training/prediction/data/*

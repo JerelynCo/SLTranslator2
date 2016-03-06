@@ -15,12 +15,8 @@ import numpy as np
 
 # Predictors dictionary
 predictors = {
-	"kNN": "KNeighborsClassifier",
     "svc": "SVC",
-    "decisionTree": "DecisionTreeClassifier",
     "randomForest": "RandomForestClassifier",
-    "ada": "AdaBoostClassifier",
-    "gaussian": "GaussianNB"
 }
 
 # Arduino
@@ -38,7 +34,6 @@ scaler_fn = "scaler.pkl"
 dir_base = "prediction_new/"
 dir_scaler = dir_base + "scaler/"
 dir_classifiers = dir_base + "classifiers/"
-
 
 
 # Target names
