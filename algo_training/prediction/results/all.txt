@@ -1,146 +1,348 @@
-***** Data loaded and standardized *****
-***** Scaler dumped *****
-***** Modeling start *****
+Explained variance ratio (first 15 components): [ 0.17975661  0.12559242  0.08631823  0.07461741  0.07264349  0.07006392
+  0.06616162  0.06200886  0.06006811  0.05734318  0.04818806  0.04615766
+  0.02020591  0.01722698  0.01364755]
+
+Data split from 1560 rows to train with 1170 rows and test with 390 rows
+
+Time of gridcv execution: 0:00:07.235198
 
 ################ RBF SVM ################
 Best parameters set found on development set: 
- {'C': 10, 'gamma': 0.001, 'kernel': 'linear'}
-
-/home/jerelynco/anaconda3/lib/python3.5/site-packages/sklearn/cross_validation.py:516: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of labels for any class cannot be less than n_folds=5.
-  % (min_labels, self.n_folds)), Warning)
-/home/jerelynco/anaconda3/lib/python3.5/site-packages/sklearn/metrics/classification.py:1074: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
-  'precision', 'predicted', average, warn_for)
-
-
+ {'C': 100, 'kernel': 'rbf', 'gamma': 0.001}
 Grid scores on development set: 
 
-0.081 (+/-0.143) for {'C': 1, 'gamma': 0.001, 'kernel': 'rbf'}
-0.831 (+/-0.101) for {'C': 1, 'gamma': 0.001, 'kernel': 'linear'}
-0.081 (+/-0.143) for {'C': 1, 'gamma': 0.0001, 'kernel': 'rbf'}
-0.831 (+/-0.101) for {'C': 1, 'gamma': 0.0001, 'kernel': 'linear'}
-0.265 (+/-0.190) for {'C': 1, 'gamma': 2, 'kernel': 'rbf'}
-0.831 (+/-0.101) for {'C': 1, 'gamma': 2, 'kernel': 'linear'}
-0.515 (+/-0.155) for {'C': 10, 'gamma': 0.001, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 10, 'gamma': 0.001, 'kernel': 'linear'}
-0.081 (+/-0.143) for {'C': 10, 'gamma': 0.0001, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 10, 'gamma': 0.0001, 'kernel': 'linear'}
-0.309 (+/-0.182) for {'C': 10, 'gamma': 2, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 10, 'gamma': 2, 'kernel': 'linear'}
-0.801 (+/-0.158) for {'C': 100, 'gamma': 0.001, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 100, 'gamma': 0.001, 'kernel': 'linear'}
-0.515 (+/-0.155) for {'C': 100, 'gamma': 0.0001, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 100, 'gamma': 0.0001, 'kernel': 'linear'}
-0.309 (+/-0.182) for {'C': 100, 'gamma': 2, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 100, 'gamma': 2, 'kernel': 'linear'}
-0.838 (+/-0.112) for {'C': 1000, 'gamma': 0.001, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 1000, 'gamma': 0.001, 'kernel': 'linear'}
-0.801 (+/-0.158) for {'C': 1000, 'gamma': 0.0001, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 1000, 'gamma': 0.0001, 'kernel': 'linear'}
-0.309 (+/-0.182) for {'C': 1000, 'gamma': 2, 'kernel': 'rbf'}
-0.838 (+/-0.112) for {'C': 1000, 'gamma': 2, 'kernel': 'linear'}
+0.293 (+/-0.022) for {'C': 1, 'kernel': 'rbf', 'gamma': 0.001}
+0.176 (+/-0.049) for {'C': 1, 'kernel': 'rbf', 'gamma': 0.0001}
+0.530 (+/-0.039) for {'C': 1, 'kernel': 'rbf', 'gamma': 2}
+0.817 (+/-0.039) for {'C': 10, 'kernel': 'rbf', 'gamma': 0.001}
+0.308 (+/-0.035) for {'C': 10, 'kernel': 'rbf', 'gamma': 0.0001}
+0.563 (+/-0.035) for {'C': 10, 'kernel': 'rbf', 'gamma': 2}
+0.840 (+/-0.036) for {'C': 100, 'kernel': 'rbf', 'gamma': 0.001}
+0.815 (+/-0.040) for {'C': 100, 'kernel': 'rbf', 'gamma': 0.0001}
+0.563 (+/-0.035) for {'C': 100, 'kernel': 'rbf', 'gamma': 2}
+0.829 (+/-0.054) for {'C': 1000, 'kernel': 'rbf', 'gamma': 0.001}
+0.839 (+/-0.037) for {'C': 1000, 'kernel': 'rbf', 'gamma': 0.0001}
+0.563 (+/-0.035) for {'C': 1000, 'kernel': 'rbf', 'gamma': 2}
 The model is trained on the full development set. 
  The scores are computed on the full evaluation set. 
 
              precision    recall  f1-score   support
 
-          0       1.00      1.00      1.00         2
-          1       1.00      1.00      1.00         2
-          2       0.50      1.00      0.67         1
-          3       1.00      1.00      1.00         2
-          4       0.50      0.50      0.50         2
-          5       1.00      1.00      1.00         1
-          6       1.00      1.00      1.00         2
-          7       1.00      1.00      1.00         2
-          8       1.00      1.00      1.00         3
-          9       1.00      1.00      1.00         2
-         10       1.00      1.00      1.00         2
-         11       1.00      1.00      1.00         2
-         12       1.00      1.00      1.00         2
-         13       1.00      1.00      1.00         3
-         14       1.00      1.00      1.00         1
-         15       1.00      0.50      0.67         2
-         16       1.00      1.00      1.00         2
-         18       0.50      0.50      0.50         2
-         19       0.00      0.00      0.00         1
-         20       1.00      1.00      1.00         1
-         21       1.00      1.00      1.00         1
-         22       1.00      1.00      1.00         2
-         23       1.00      1.00      1.00         1
-         24       1.00      1.00      1.00         2
-         25       0.75      1.00      0.86         3
+          0       0.46      0.57      0.51        21
+          1       0.90      0.90      0.90        10
+          2       0.83      0.38      0.53        13
+          3       1.00      0.89      0.94        18
+          4       0.47      0.64      0.55        14
+          5       1.00      1.00      1.00        15
+          6       1.00      0.93      0.97        15
+          7       0.89      1.00      0.94        17
+          8       1.00      1.00      1.00        18
+          9       0.94      1.00      0.97        15
+         10       1.00      0.55      0.71        11
+         11       0.88      1.00      0.93        14
+         12       1.00      0.92      0.96        12
+         13       0.74      1.00      0.85        14
+         14       0.43      0.60      0.50        10
+         15       0.94      0.79      0.86        19
+         16       0.89      0.89      0.89        19
+         17       1.00      1.00      1.00        15
+         18       0.50      0.42      0.46        19
+         19       0.50      0.29      0.37        24
+         20       0.92      1.00      0.96        11
+         21       0.71      1.00      0.83        10
+         22       1.00      0.93      0.97        15
+         23       0.75      0.94      0.83        16
+         24       1.00      0.93      0.97        15
+         25       0.91      1.00      0.95        10
 
-avg / total       0.91      0.91      0.90        46
+avg / total       0.82      0.81      0.81       390
 
+Time of gridcv execution: 0:00:25.730269
 
 ################ Random Forest ################
 Best parameters set found on development set: 
  {'max_depth': 25, 'n_estimators': 130}
-
-/home/jerelynco/anaconda3/lib/python3.5/site-packages/sklearn/cross_validation.py:516: Warning: The least populated class in y has only 4 members, which is too few. The minimum number of labels for any class cannot be less than n_folds=5.
-  % (min_labels, self.n_folds)), Warning)
-/home/jerelynco/anaconda3/lib/python3.5/site-packages/sklearn/metrics/classification.py:1074: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
-  'precision', 'predicted', average, warn_for)
-
-
 Grid scores on development set: 
 
-0.706 (+/-0.112) for {'max_depth': 3, 'n_estimators': 50}
-0.743 (+/-0.059) for {'max_depth': 3, 'n_estimators': 75}
-0.801 (+/-0.120) for {'max_depth': 3, 'n_estimators': 100}
-0.838 (+/-0.188) for {'max_depth': 3, 'n_estimators': 130}
-0.831 (+/-0.121) for {'max_depth': 3, 'n_estimators': 150}
-0.824 (+/-0.086) for {'max_depth': 7, 'n_estimators': 50}
-0.809 (+/-0.175) for {'max_depth': 7, 'n_estimators': 75}
-0.860 (+/-0.108) for {'max_depth': 7, 'n_estimators': 100}
-0.824 (+/-0.082) for {'max_depth': 7, 'n_estimators': 130}
-0.868 (+/-0.075) for {'max_depth': 7, 'n_estimators': 150}
-0.801 (+/-0.107) for {'max_depth': 9, 'n_estimators': 50}
-0.831 (+/-0.097) for {'max_depth': 9, 'n_estimators': 75}
-0.846 (+/-0.130) for {'max_depth': 9, 'n_estimators': 100}
-0.824 (+/-0.083) for {'max_depth': 9, 'n_estimators': 130}
-0.846 (+/-0.079) for {'max_depth': 9, 'n_estimators': 150}
-0.824 (+/-0.085) for {'max_depth': 11, 'n_estimators': 50}
-0.831 (+/-0.121) for {'max_depth': 11, 'n_estimators': 75}
-0.846 (+/-0.088) for {'max_depth': 11, 'n_estimators': 100}
-0.860 (+/-0.052) for {'max_depth': 11, 'n_estimators': 130}
-0.860 (+/-0.059) for {'max_depth': 11, 'n_estimators': 150}
-0.809 (+/-0.085) for {'max_depth': 25, 'n_estimators': 50}
-0.816 (+/-0.093) for {'max_depth': 25, 'n_estimators': 75}
-0.868 (+/-0.091) for {'max_depth': 25, 'n_estimators': 100}
-0.875 (+/-0.080) for {'max_depth': 25, 'n_estimators': 130}
-0.846 (+/-0.085) for {'max_depth': 25, 'n_estimators': 150}
+0.724 (+/-0.053) for {'max_depth': 3, 'n_estimators': 50}
+0.696 (+/-0.060) for {'max_depth': 3, 'n_estimators': 75}
+0.715 (+/-0.044) for {'max_depth': 3, 'n_estimators': 100}
+0.721 (+/-0.037) for {'max_depth': 3, 'n_estimators': 130}
+0.712 (+/-0.039) for {'max_depth': 3, 'n_estimators': 150}
+0.816 (+/-0.028) for {'max_depth': 7, 'n_estimators': 50}
+0.826 (+/-0.037) for {'max_depth': 7, 'n_estimators': 75}
+0.821 (+/-0.046) for {'max_depth': 7, 'n_estimators': 100}
+0.821 (+/-0.050) for {'max_depth': 7, 'n_estimators': 130}
+0.813 (+/-0.043) for {'max_depth': 7, 'n_estimators': 150}
+0.828 (+/-0.040) for {'max_depth': 9, 'n_estimators': 50}
+0.832 (+/-0.047) for {'max_depth': 9, 'n_estimators': 75}
+0.835 (+/-0.052) for {'max_depth': 9, 'n_estimators': 100}
+0.834 (+/-0.053) for {'max_depth': 9, 'n_estimators': 130}
+0.838 (+/-0.035) for {'max_depth': 9, 'n_estimators': 150}
+0.836 (+/-0.041) for {'max_depth': 11, 'n_estimators': 50}
+0.835 (+/-0.053) for {'max_depth': 11, 'n_estimators': 75}
+0.835 (+/-0.046) for {'max_depth': 11, 'n_estimators': 100}
+0.845 (+/-0.043) for {'max_depth': 11, 'n_estimators': 130}
+0.847 (+/-0.048) for {'max_depth': 11, 'n_estimators': 150}
+0.842 (+/-0.046) for {'max_depth': 25, 'n_estimators': 50}
+0.847 (+/-0.043) for {'max_depth': 25, 'n_estimators': 75}
+0.840 (+/-0.051) for {'max_depth': 25, 'n_estimators': 100}
+0.853 (+/-0.058) for {'max_depth': 25, 'n_estimators': 130}
+0.852 (+/-0.048) for {'max_depth': 25, 'n_estimators': 150}
 The model is trained on the full development set. 
  The scores are computed on the full evaluation set. 
 
              precision    recall  f1-score   support
 
-          0       1.00      1.00      1.00         2
-          1       1.00      1.00      1.00         2
-          2       0.50      1.00      0.67         1
-          3       1.00      1.00      1.00         2
-          4       0.50      0.50      0.50         2
-          5       0.00      0.00      0.00         1
-          6       1.00      1.00      1.00         2
-          7       1.00      1.00      1.00         2
-          8       1.00      1.00      1.00         3
-          9       1.00      1.00      1.00         2
-         10       1.00      1.00      1.00         2
-         11       1.00      1.00      1.00         2
-         12       1.00      1.00      1.00         2
-         13       1.00      1.00      1.00         3
-         14       0.50      1.00      0.67         1
-         15       1.00      0.50      0.67         2
-         16       1.00      1.00      1.00         2
-         18       0.50      0.50      0.50         2
-         19       0.00      0.00      0.00         1
-         20       1.00      1.00      1.00         1
-         21       1.00      1.00      1.00         1
-         22       1.00      1.00      1.00         2
-         23       1.00      1.00      1.00         1
-         24       1.00      1.00      1.00         2
-         25       0.75      1.00      0.86         3
+          0       0.54      0.67      0.60        21
+          1       0.75      0.90      0.82        10
+          2       1.00      0.31      0.47        13
+          3       1.00      0.94      0.97        18
+          4       0.52      0.79      0.63        14
+          5       1.00      0.87      0.93        15
+          6       1.00      0.93      0.97        15
+          7       0.89      1.00      0.94        17
+          8       1.00      1.00      1.00        18
+          9       0.94      1.00      0.97        15
+         10       0.90      0.82      0.86        11
+         11       0.93      0.93      0.93        14
+         12       1.00      0.92      0.96        12
+         13       0.82      1.00      0.90        14
+         14       0.47      0.90      0.62        10
+         15       1.00      0.74      0.85        19
+         16       0.86      0.95      0.90        19
+         17       1.00      0.93      0.97        15
+         18       0.62      0.42      0.50        19
+         19       0.62      0.42      0.50        24
+         20       0.91      0.91      0.91        11
+         21       0.91      1.00      0.95        10
+         22       1.00      0.87      0.93        15
+         23       0.88      0.94      0.91        16
+         24       0.82      0.93      0.87        15
+         25       0.83      1.00      0.91        10
 
-avg / total       0.88      0.89      0.87        46
+avg / total       0.85      0.83      0.83       390
 
-SVC : dumped!
-RandomForestClassifier : dumped!
+
+*******On SVC training and testing evaluation********
+
+Accuracy on training set:
+0.882805816938
+Accuracy on testing set:
+0.81233933162
+Classification Report for test:
+             precision    recall  f1-score   support
+
+        0.0       0.46      0.57      0.51        21
+        1.0       0.90      0.90      0.90        10
+        2.0       0.83      0.38      0.53        13
+        3.0       1.00      0.89      0.94        18
+        4.0       0.47      0.64      0.55        14
+        5.0       1.00      1.00      1.00        14
+        6.0       1.00      0.93      0.97        15
+        7.0       0.89      1.00      0.94        17
+        8.0       1.00      1.00      1.00        18
+        9.0       0.94      1.00      0.97        15
+       10.0       1.00      0.55      0.71        11
+       11.0       0.88      1.00      0.93        14
+       12.0       1.00      0.92      0.96        12
+       13.0       0.74      1.00      0.85        14
+       14.0       0.43      0.60      0.50        10
+       15.0       0.94      0.79      0.86        19
+       16.0       0.89      0.89      0.89        19
+       17.0       1.00      1.00      1.00        15
+       18.0       0.50      0.42      0.46        19
+       19.0       0.50      0.29      0.37        24
+       20.0       0.92      1.00      0.96        11
+       21.0       0.71      1.00      0.83        10
+       22.0       1.00      0.93      0.97        15
+       23.0       0.75      0.94      0.83        16
+       24.0       1.00      0.93      0.97        15
+       25.0       0.91      1.00      0.95        10
+
+avg / total       0.82      0.81      0.81       389
+
+Confusion Matrix for test:
+[[12  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  3  6  0  0  0  0
+   0  0]
+ [ 1  9  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  5  0  5  0  0  0  0  0  0  0  0  1  2  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0 16  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  1
+   0  0]
+ [ 0  0  0  0  9  0  0  0  0  0  0  0  0  2  0  0  0  0  3  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0 14  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0 14  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0 17  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0 18  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0 15  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  6  0  0  0  0  0  0  0  0  0  1  4  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0 14  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 1  0  0  0  0  0  0  0  0  0  0  0 11  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0 14  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  1  0  0  0  0  0  0  0  0  0  6  0  0  0  1  0  0  0  0  2
+   0  0]
+ [ 0  0  0  0  0  0  0  2  0  0  0  0  0  0  0 15  2  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1 17  0  0  0  0  0  0  0
+   0  1]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 15  0  0  0  0  0  0
+   0  0]
+ [ 1  0  0  0  4  0  0  0  0  0  0  0  0  1  4  0  0  0  8  1  0  0  0  0
+   0  0]
+ [11  0  1  0  0  0  0  0  0  0  0  0  0  0  2  0  0  0  1  7  0  0  0  2
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 11  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 10  0  0
+   0  0]
+ [ 0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 14  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0 15
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  14  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0 10]]
+
+*******On RF training and testing evaluation********
+
+Accuracy on training set:
+1.0
+Accuracy on testing set:
+0.830334190231
+Classification Report for test:
+             precision    recall  f1-score   support
+
+        0.0       0.54      0.67      0.60        21
+        1.0       0.75      0.90      0.82        10
+        2.0       1.00      0.31      0.47        13
+        3.0       1.00      0.94      0.97        18
+        4.0       0.52      0.79      0.63        14
+        5.0       1.00      0.86      0.92        14
+        6.0       1.00      0.93      0.97        15
+        7.0       0.89      1.00      0.94        17
+        8.0       1.00      1.00      1.00        18
+        9.0       0.94      1.00      0.97        15
+       10.0       0.90      0.82      0.86        11
+       11.0       0.93      0.93      0.93        14
+       12.0       1.00      0.92      0.96        12
+       13.0       0.82      1.00      0.90        14
+       14.0       0.47      0.90      0.62        10
+       15.0       1.00      0.74      0.85        19
+       16.0       0.86      0.95      0.90        19
+       17.0       1.00      0.93      0.97        15
+       18.0       0.62      0.42      0.50        19
+       19.0       0.62      0.42      0.50        24
+       20.0       0.91      0.91      0.91        11
+       21.0       0.91      1.00      0.95        10
+       22.0       1.00      0.87      0.93        15
+       23.0       0.88      0.94      0.91        16
+       24.0       0.82      0.93      0.87        15
+       25.0       0.83      1.00      0.91        10
+
+avg / total       0.85      0.83      0.83       389
+
+Confusion Matrix for test:
+[[14  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  1  5  0  0  0  0
+   0  0]
+ [ 1  9  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  4  0  5  0  0  0  0  0  0  0  0  1  3  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0 17  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0
+   0  0]
+ [ 0  0  0  0 11  0  0  0  0  0  0  0  0  0  0  0  0  0  3  0  0  0  0  0
+   0  0]
+ [ 0  1  0  0  0 12  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   1  0]
+ [ 0  0  0  0  0  0 14  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0 17  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0 18  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0 15  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  9  0  0  0  0  0  0  0  0  0  1  1  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0 13  0  0  0  0  0  0  0  0  0  0  0  0
+   1  0]
+ [ 1  0  0  0  0  0  0  0  0  0  0  0 11  0  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0 14  0  0  0  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  9  0  0  0  1  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  2  0  0  0  0  0  0  0 14  3  0  0  0  0  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 18  0  0  0  0  0  0  0
+   0  1]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 14  0  0  0  0  0  0
+   0  1]
+ [ 1  0  0  0  5  0  0  0  0  0  0  0  0  1  4  0  0  0  8  0  0  0  0  0
+   0  0]
+ [ 9  0  0  0  0  0  0  0  0  0  0  0  0  0  2  0  0  0  0 10  0  0  0  2
+   1  0]
+ [ 0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0 10  0  0  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 10  0  0
+   0  0]
+ [ 0  2  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 13  0
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0 15
+   0  0]
+ [ 0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+  14  0]
+ [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+   0 10]]
+
+Evaluation of random forest's influential features: 
+
+[(0.1081, 'fMiddle'), (0.10340000000000001, 'fIndex'), (0.1022, 'fPinky'), (0.10009999999999999, 'fThumb'), (0.095500000000000002, 'fRing'), (0.0911, 'aY'), (0.088400000000000006, 'aX'), (0.080600000000000005, 'aZ'), (0.068699999999999997, 'c1'), (0.039300000000000002, 'c3'), (0.031399999999999997, 'c2'), (0.028799999999999999, 'c4'), (0.023400000000000001, 'gX'), (0.019599999999999999, 'gZ'), (0.019199999999999998, 'gY')]
+
+**RESULTING SUGGESTED FEATURES TO REMOVE (3)**
+gX
+gY
+gZ
+
+Variances: 
+
+25    30.004424
+7     26.410493
+6     26.124055
+17    25.531772
+16    24.767389
+23    23.955120
+1     23.444368
+9     23.391555
+22    23.101406
+15    22.952852
+8     22.547443
+24    22.265624
+21    21.819383
+20    21.512096
+19    21.149340
+12    20.996517
+14    20.239477
+2     20.048004
+10    19.749636
+5     19.746618
+18    19.518702
+13    19.170856
+3     18.016117
+4     17.728990
+0     17.594591
+11    17.092454
+dtype: float64
