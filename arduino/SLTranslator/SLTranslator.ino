@@ -9,6 +9,19 @@ Gnd: GND
 3.3V: VCC
 A4: SDA
 A5: SLC
+
+Flex sensors pins assignment
+Digital pins: 15, 16, 17, 20, 21
+
+Contact sensors pins assignment
+2, 3, 4, 5
+
+Enter button pin
+6
+
+Space button pin
+7
+
 */
 
 #include <Wire.h>
@@ -34,6 +47,7 @@ char ACCELZ1 = 0x37; //Z-Axis Data 1
 #define G_INT_CFG 0x17
 #define G_PWR_MGM 0x3E
 #define G_TO_READ 8 // 2 bytes for each axis x, y, z
+
 // offsets are chip specific. 
 int g_offx = 120;
 int g_offy = 20;
@@ -64,10 +78,16 @@ int sensorValue;
 // start of data collection?
 bool dataCollectStart = true;
 
-// comment the next two lines if not collecting data
+// add on constant vars
 const int SAMPLE_SIZE = 25;
 const int CHARCOUNT = 30; //Number of total characters to read. Includes space and enter
 const char CHARACTERS[CHARCOUNT] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //_ = space, / = enter, - = rest
+
+// Keyboard interface variables
+const int ENTER_BUTTON_PIN = 6;
+const int SPACE_BUTTON_PIN = 7;
+int enterButtonState, spaceButtonState = 0;
+int lastEnterButtonState, lastSpaceButtonState = 0;
 
 // time recording
 //unsigned long old_time;
@@ -84,6 +104,9 @@ void setup() {
   for(int i = 0; i < CONTPINSCOUNT; i++){
     pinMode(CONTPINS[i], INPUT_PULLUP);
   }
+
+  pinMode(ENTER_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(SPACE_BUTTON_PIN, INPUT_PULLUP);
   
   //Accelerometer setup
   initAccel();
@@ -99,6 +122,8 @@ void loop() {
   else{
     //new_time=millis();
     displayValues();
+    keyboard();
+    
     /*Serial.print("-----------------------\n");
     Serial.print("Time difference: ");
     Serial.print(new_time - old_time);
@@ -106,6 +131,27 @@ void loop() {
     old_time = new_time;*/
   }
   delay(50);
+}
+
+void keyboard(){
+  enterButtonState = digitalRead(ENTER_BUTTON_PIN);
+  spaceButtonState = digitalRead(SPACE_BUTTON_PIN);
+  
+  if(enterButtonState != lastEnterButtonState){
+    if(enterButtonState == LOW){
+      Serial.println("enter");
+    } 
+  }
+
+  if(spaceButtonState != lastSpaceButtonState){
+    if(spaceButtonState == LOW){
+      Serial.println("space");
+    }
+  }
+  delay(50);
+  
+  lastEnterButtonState = enterButtonState;
+  lastSpaceButtonState = spaceButtonState;
 }
 
 void displayValues(){
