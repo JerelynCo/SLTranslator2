@@ -3,7 +3,7 @@
 * Run and install missing libraries (most likely sklearn is missing)
 * Change arduino port if necessary
 * Report to Je if any errors found
-* Edit 
+* Edit
 
 
 ** Install the following for windows:
@@ -61,6 +61,23 @@ predictor = joblib.load(dir_classifiers + directory + classifier_fn)
 
 k = PyKeyboard()
 
+letters_min_max = [[[-107, -21, -124, -127, -102], [38, 150, 49, 31, 39]],
+                   [[-102, -13, -9, -116, -101], [34, 118, 114, 53, 15]],
+                   [[-106, -20, -126, -127, -111], [38, 100, 27, 62, 6]]]
+
+keys = ["Z", "H", "G"]
+
+
+def checkUser(row, counter):
+    for i in range(5):
+        for j in range(5):
+            if letters_min_max[i][0][j] <= row[i] <= letters_min_max[i][1][j]:
+                return True  # within range
+            else:
+                return False  # out of range
+
+
+counter = 0
 while(1):
     row = ser.readline().decode("utf-8").strip()
     if "," in row:
@@ -70,11 +87,19 @@ while(1):
         if directory == "wo_g":
             int_row = int_row[:-3]
 
+        if counter < len(letters_min_max.keys()):
+        	if not checkUser(int_row[:5], counter):
+        		ser.write(b'User does not pass')
+        		break
+            counter += 1
+
     if "enter" in row:
         prediction = predictor.predict(
             scaler.transform(int_row.reshape(1, -1)))
-
         k.type_string("%s" % (target_names[prediction]))
 
     if "space" in row:
         k.type_string(" ")
+
+    else:
+    	pass

@@ -113,6 +113,8 @@ void setup() {
 
   //Gyroscope setup
   initGyro();
+
+  testUser();
 }
 
 void loop() {
@@ -131,6 +133,19 @@ void loop() {
     old_time = new_time;*/
   }
   delay(50);
+}
+
+void testUser(){  
+  char varied_letters = ['Z', 'H', 'G'];
+  int n_varied_letters = 3;
+  String merged;
+  for(int i = 0; i < n_varied_letters; i++){ // goes through 3 letters
+    merged = "==> [Test] Perform " + varied_letters[i] + "in 3s:";
+    Serial.println(merged);
+    delay(5000);
+    displayValues();
+    Serial.println();    
+  }
 }
 
 void keyboard(){
@@ -180,11 +195,11 @@ void calibrateFlexSensors(){
   pinMode(13, OUTPUT);
 
   // signal the start of calibration
-  digitalWrite(13, HIGH); 
+  digitalWrite(13, HIGH);
 
-  // calibrate during the first 5 seconds
-  while (millis() < 5000) {
+  bool pass = true;
 
+  while (1) {
     for(int i = 0; i < FLEXPINSCOUNT; i++){
       flexValues[i] = analogRead(FLEXPINS[i]);
       
@@ -196,6 +211,14 @@ void calibrateFlexSensors(){
       if(flexValues[i] <  sensorMin[i]){
         sensorMin[i] = flexValues[i];
       }
+
+      if(flexValues[i] - sensorMin[i] > 20){
+        pass *= false; // if one of the elements' diff is
+        //greater than 20, then calibration repeats
+      }
+    }
+    if(pass==true){
+      break; // if not, calibration succeeds
     }
   }
   
