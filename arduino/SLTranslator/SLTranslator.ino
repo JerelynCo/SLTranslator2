@@ -76,7 +76,7 @@ float flex[FLEXPINSCOUNT];
 int sensorValue;
 
 // start of data collection?
-bool dataCollectStart = true;
+bool dataCollectStart = false;
 
 // add on constant vars
 const int SAMPLE_SIZE = 25;
@@ -136,11 +136,12 @@ void loop() {
 }
 
 void testUser(){  
-  char varied_letters = ['Z', 'H', 'G'];
-  int n_varied_letters = 3;
+  char varied_letters [] = ".ZHG";
+  int n_varied_letters = 4;
   String merged;
   for(int i = 0; i < n_varied_letters; i++){ // goes through 3 letters
-    merged = "==> [Test] Perform " + varied_letters[i] + "in 3s:";
+    merged = "==> [Test] Perform in 3s: ";
+    Serial.print (varied_letters[i]);
     Serial.println(merged);
     delay(5000);
     displayValues();
