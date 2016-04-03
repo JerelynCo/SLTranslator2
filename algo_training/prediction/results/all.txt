@@ -4,7 +4,65 @@ Explained variance ratio (first 15 components): [ 0.17975661  0.12559242  0.0863
 
 Data split from 1560 rows to train with 1170 rows and test with 390 rows
 
+test:
+T    24
+A    21
+S    19
+P    19
+Q    19
+D    18
+I    18
+H    17
+X    16
+Y    15
+W    15
+R    15
+G    15
+F    15
+J    15
+N    14
+E    14
+L    14
+C    13
+M    12
+U    11
+K    11
+V    10
+B    10
+Z    10
+O    10
+train
+V    50
+O    50
+B    50
+Z    50
+K    49
+U    49
+M    48
+C    47
+E    46
+L    46
+N    46
+F    45
+Y    45
+J    45
+G    45
+R    45
+W    45
+X    44
+H    43
+D    42
+I    42
+P    41
+S    41
+Q    41
+A    39
+T    36
+
+
+
 Time of gridcv execution: 0:00:07.235198
+
 
 ################ RBF SVM ################
 Best parameters set found on development set: 
