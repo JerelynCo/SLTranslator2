@@ -213,8 +213,8 @@ Confusion Matrix for test:
  [ 0  0  0  0  0  0  0  0  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0
   14  0]
  [ 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
-   0 10]
-]
+   0 10]]
+
 *******On RF training and testing evaluation********
 
 Accuracy on training set:
