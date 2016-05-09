@@ -114,7 +114,7 @@ void setup() {
   //Gyroscope setup
   initGyro();
 
-  testUser();
+//  testUser();
 }
 
 void loop() {
